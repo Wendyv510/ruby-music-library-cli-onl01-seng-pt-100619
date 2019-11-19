@@ -18,6 +18,10 @@
     @@all 
   end 
   
+  def self.songs 
+    @songs 
+  end 
+  
   def self.destroy_all 
     @@all.clear
   end 

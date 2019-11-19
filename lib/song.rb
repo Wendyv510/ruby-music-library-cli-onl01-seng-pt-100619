@@ -6,7 +6,8 @@ class Song
   
   def initialize(name,artist=nil)
     @name = name 
-    @artist = artist  
+    @artist = artist 
+    
   end 
   
   def self.all 
@@ -23,9 +24,9 @@ class Song
     song 
   end 
   
-  def self.artist=(artist)
-    Song.artist = Artist 
-    song = Artist.add_song(song)
+  def artist=(artist)
+    @artist = artist
+    artist.add_song(self)
   end 
   
   def self.destroy_all 
