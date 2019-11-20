@@ -1,6 +1,7 @@
  class Artist 
+   extend Concerns::Findable
   
-  attr_accessor :name, :songs  
+  attr_accessor :name, :songs, :genres 
   
   @@all = [] 
   
@@ -18,10 +19,6 @@
     @@all 
   end 
   
-  def self.songs 
-    @songs 
-  end 
-  
   def self.destroy_all 
     @@all.clear
   end 
@@ -37,4 +34,7 @@
       @songs << song if self.songs.include?(song) == false 
   end 
   
+  def genres
+    self.songs.collect {|s| s.genre}.uniq
+  end 
 end 
